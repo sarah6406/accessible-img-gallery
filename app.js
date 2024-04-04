@@ -4,24 +4,40 @@ const footer = document.getElementById("footer");
 
 // functions for using arrow keys to navigate through photos using keyboard
 
+function arrowPress() {
+  let imageIndex = 0;
+  document.addEventListener("keydown", function (event) {
+    if (event.key === ArrowLeft) {
+      imageIndex -= 1;
+      console.log("left key pressed");
+    } else if (event.key === ArrowRight) {
+      //Right arrow
+      imageIndex += 1;
+      console.log("right key pressed");
+    }
+  });
+}
+
 // putting images within array as objects
 
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1604762524889-3e2fcc145683?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "selection of houseplants",
-    title: "selection of houseplants",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1592150621744-aca64f48394a?q=80&w=1491&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "another selection of houseplants",
-    title: "another selection of houseplants",
+    src: "https://images.unsplash.com/photo-1628246499185-54f441171885?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "not sure what this is but there's a variegated monstera in there somewhere.",
+    title:
+      "not sure what this is but there's a variegated monstera in there somewhere.",
   },
   {
     src: "https://images.unsplash.com/photo-1614959541555-4550895d4b2d?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     alt: "houseplants by a fireplace",
     title: "houseplants by a fireplace",
   },
+  {
+    src: "https://images.unsplash.com/photo-1592150621744-aca64f48394a?q=80&w=1491&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "another selection of houseplants",
+    title: "another selection of houseplants",
+  },
+
   {
     src: "https://images.unsplash.com/photo-1619423089884-bc5b70bc4e2c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     alt: "pretty monstera, also known as swiss cheese plant",
@@ -45,7 +61,11 @@ function thumbnails() {
     displayThumbnail.appendChild(img); // appending thumbnail to the thumbnail container (first div)
     img.addEventListener("click", function () {
       displayLargeImg(thumbnail); // calling function that has been created to display thumbnail
+      console.log("image clicked");
     });
+    // img.addEventListener("click", function () {
+
+    // });
   });
 }
 
@@ -64,12 +84,26 @@ function displayLargeImg(largeImg) {
 function appendFooter() {
   const p = document.createElement("p");
   footer.appendChild(p);
-  p.textContent = "Images courtesy of Unsplash ltd.";
+  p.textContent = "Images courtesy of Unsplash Ltd.";
   p.style.color = "white";
   p.style.fontFamily = "monospace";
   p.alt = "footer tag";
 }
+
+// function onFocus() {
+//   images.addEventListener("click", function () {
+//     console.log("images clicked");
+//   });
+//   // images.forEach(function (image) {
+//   //     image.addEventListener("focus", (e) => {
+//   //         console.log(`Element ${e.currentTarget} is focused`);
+//   //       });
+//   //     });
+// }
+
 // execute the functions
 thumbnails();
 displayLargeImg(images[0]);
 appendFooter();
+// onFocus();
+arrowPress();

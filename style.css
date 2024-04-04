@@ -49,18 +49,14 @@ div #main-img {
   object-fit: cover;
 } */
 
-
-
 body,
 html {
   height: 100%;
   background-color: black;
-  
 }
 .main-img-container {
-    height: 100%;
-    width: auto;
-    
+  height: 100%;
+  width: auto;
 }
 .main-img-container img {
   height: 100%;
@@ -71,7 +67,7 @@ html {
 
 #thumbnail-container {
   /* height: 100px; */
-  width: 50%;
+  width: 60%;
   margin: auto;
   /* align-items: center; */
   display: flex;
@@ -79,18 +75,22 @@ html {
   position: fixed;
   z-index: 1;
   margin-left: -10px;
-  /* display: flex; */
-  /* justify-content: space-between; */
+  display: flex;
+  justify-content: space-between;
 }
 #thumbnail-container img {
-    height: 200px;
-    width: 200px;
-    border: 2px solid black;
-    border-radius: 10px;
-    margin: 0;
-    padding: 0;
-    object-fit: cover;
-  }
+  height: 200px;
+  width: 200px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+}
+
+/* #thumbnail-container img:focus {
+    outline: 2px solid pink;
+  } */
 
 /* @media (max-width: 400px) {
   #thumbnail-container {
@@ -101,17 +101,15 @@ html {
   }
 } */
 @media (max-width: 1200px) {
-    #thumbnail-container {
-        flex-wrap: wrap;
-        height: 800px; 
-    width: 142px; 
-    
-    }
+  #thumbnail-container {
+    flex-wrap: wrap;
+    /* height: 800px;
+    width: 142px; */
+  }
 }
 #footer {
-    /* height: 10px; */
-    width: 50%;
-    margin: auto;
-    text-align: center;
-  
+  /* height: 10px; */
+  width: 50%;
+  margin: auto;
+  text-align: center;
 }
