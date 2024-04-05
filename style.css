@@ -52,6 +52,7 @@ div #main-img {
 body,
 html {
   height: 100%;
+  width: auto;
   background-color: black;
 }
 .main-img-container {
@@ -74,18 +75,21 @@ html {
   justify-content: space-evenly;
   position: fixed;
   z-index: 1;
-  margin-left: -10px;
+  /* margin-left: -10px; */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 #thumbnail-container img {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   border: 2px solid black;
   border-radius: 10px;
   margin: 0;
   padding: 0;
   object-fit: cover;
+}
+#thumbnail-container img:hover {
+  cursor: pointer;
 }
 
 /* #thumbnail-container img:focus {
@@ -102,7 +106,9 @@ html {
 } */
 @media (max-width: 1200px) {
   #thumbnail-container {
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 90%;
     /* height: 800px;
     width: 142px; */
   }
@@ -111,5 +117,7 @@ html {
   /* height: 10px; */
   width: 50%;
   margin: auto;
+  padding-top: 10px;
+  padding-bottom: 15px;
   text-align: center;
 }

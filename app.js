@@ -1,21 +1,40 @@
 const displayMainImg = document.getElementById("main-img");
 const displayThumbnail = document.getElementById("thumbnail-container");
 const footer = document.getElementById("footer");
-
+let imageIndex = 0;
 // functions for using arrow keys to navigate through photos using keyboard
 
-function arrowPress() {
-  let imageIndex = 0;
-  document.addEventListener("keydown", function (event) {
-    if (event.key === ArrowLeft) {
-      imageIndex -= 1;
-      console.log("left key pressed");
-    } else if (event.key === ArrowRight) {
-      //Right arrow
-      imageIndex += 1;
-      console.log("right key pressed");
-    }
-  });
+function arrowPress(event) {
+  // debugger;
+  // console.log(event);
+  if (event.key === "ArrowLeft") {
+    nextImage(-1); // callback function for if image index is more than that on the screen, loop back to last image in array
+    console.log("left key pressed");
+  }
+  if (event.key === "ArrowRight") {
+    //Right arrow
+
+    // if (imageIndex < images.length) {
+    //   imageIndex -= 1;
+    // }
+    nextImage(1); // callback function for if image index is less than that on the screen, loop back to first image in array
+    console.log("right key pressed");
+  }
+  
+}
+
+document.addEventListener("keydown", arrowPress);
+
+function nextImage(index) {
+  imageIndex += index;
+  if (imageIndex >= images.length) {
+    imageIndex = 0;
+  }
+  if (imageIndex < 0) {
+    imageIndex = images.length - 1;
+  }
+  console.log(imageIndex);
+  displayLargeImg(images[imageIndex]);
 }
 
 // putting images within array as objects
