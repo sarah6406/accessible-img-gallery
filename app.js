@@ -20,7 +20,10 @@ function arrowPress(event) {
     nextImage(1); // callback function for if image index is less than that on the screen, loop back to first image in array
     console.log("right key pressed");
   }
-  
+  if (event.key === " ") { // if spacebar is pressed
+    nextImage(1);
+    console.log("spacebar pressed")
+  }
 }
 
 document.addEventListener("keydown", arrowPress);
